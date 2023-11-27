@@ -48,8 +48,10 @@ Usage: Run with `cargo xtask <task>`, eg. `cargo xtask docgen`.
 
 fn main() -> Result<(), DynError> {
     let task = env::args().nth(1);
+
     match task {
         None => tasks::print_help(),
+        
         Some(t) => match t.as_str() {
             "docgen" => tasks::docgen()?,
             "themelint" => tasks::themelint(env::args().nth(2))?,
